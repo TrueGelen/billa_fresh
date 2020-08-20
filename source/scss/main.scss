@@ -1,0 +1,796 @@
+@import 'smart-grid';
+@import '_normalize';
+@import '_fonts';
+@import 'swiper.min.css';
+
+
+// https://vk.com/id290805503
+
+//---vars
+// $text: white;
+// black: #be84a3;
+// $mainGreen: #9cc83a;
+// $mainWhite: #f2f2f2;
+
+///---------common styles ----------------------
+
+html {
+	// font-size: 20px;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+img{
+	margin: 0;
+	padding: 0;
+	width: 100%;	
+}
+
+picture{
+	display: block;
+
+	& > *{
+		vertical-align: top;
+	}
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style: none;
+	color: #fff;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+body, div, h1, h2, h3, h4, p, input {
+	margin: 0;
+	padding: 0;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.container {	
+	// border: 1px solid red;
+	position: relative;
+	// @include wrapper();
+
+	// @include to(1920px){
+	// 	max-width: calc(1338.5px + 60px);
+	// }
+
+	// @include sm(max-width, 93%);
+  // @include xs(max-width, 100%);
+  
+  width: 77.8%;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1023px){
+    width: calc(100% - 60px);
+  }
+
+  @media screen and (max-width: 560px){
+    width: calc(100% - 30px);
+  }
+}
+
+.page {
+	position: relative;
+	// max-width: 1920px;
+}
+
+.asideColumn {
+	position: fixed;
+	z-index: 10;
+	width: 185px;
+	height: 100vh;
+	padding: 20px 0 10px 25px;
+	background-color: #fff;
+	border-right: 1px solid #e5e5e5;
+
+	@include to(1023px){
+		display: none;
+	}
+
+	& > p{
+	}
+}
+
+.pageWrap {
+	padding-left: 187px;
+
+	@include to(1023px){
+		padding-left: 0;
+	}
+}
+
+.uniqueizer11221{
+  position: relative;
+  line-height: 1.15;
+  // background-color: $mainWhite;
+  background-image: url(../img/grass.png);
+  background-repeat: repeat;
+  background-size: contain;
+  overflow: hidden;
+
+  .mainTitle{
+    font-family: DinPro-Bold, sans-serif;
+    text-transform: uppercase;
+		font-size: 2.7vw;
+		color: black;
+		line-height: 1;
+
+		// @media screen and (max-width: 1023px){
+    //   font-size: 3vw;
+    // }
+		// @include sm(font-size, 3.5vw);
+		// @include xs(font-size, 4vw);
+		// @include xxs(font-size, 3.2vw);
+	}
+
+	.mainText{
+    font-family: DinPro-Regular, sans-serif;
+		font-size: 1.3vw;
+		color: black;
+    line-height: 1.25;
+    
+    // @media screen and (max-width: 1280px){
+    //   font-size: 1.1vw;
+    // }
+
+		// @media screen and (max-width: 1023px){
+    //   font-size: 1.8vw;
+    // }
+		// @include sm(font-size, 1.6vw);
+		// @include xs(font-size, 2.2vw);
+		// @include xxs(font-size, 3.2vw);
+
+		// & > span{
+			
+		// }
+  }
+
+	.firstBlock{
+		border: 1px solid blue;
+		position: relative;
+		line-height: 1.15;
+
+    font-family: DinPro-Black, sans-serif;
+    text-transform: uppercase;
+		text-align: center;
+    color: black;
+
+    &__ellipse{
+      width: 69vw;
+      margin: 0 0 0 auto;
+    }
+
+    &__content{
+      border: 1px solid black;
+      position: absolute;
+      top: 20%;
+      // transform: translateY(-50%);
+      right: 5vw;
+      width: 41vw;
+    }
+
+    &__billaLogo{
+      width: 17%;
+    }
+
+    &__title{
+      font-size: 5.9vw;
+      line-height: 1;
+      margin-top: 1vw;
+    }
+
+    &__subtitle{
+      font-size: 1.6vw;
+      margin-top: 1.2vw;
+    }    
+  }
+
+  .tasks{
+    border: 1px solid blue;
+		position: relative;
+		line-height: 1.15;
+    color: black;
+
+    &__layouts{
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__left{
+      border: 1px solid yellow;
+      margin-top: -11vw;
+      width: 49%;
+      // transform: scale(1);
+    }
+
+    &__right{
+      border: 1px solid black;
+      width: 51%;
+      margin-top: 4vw;
+      transform: scale(1.05);
+    }
+
+    &__appleAndGreen{
+      position: absolute;
+      top: -33.5vw;
+      left: 1.9%;
+      width: 52%;    
+    }
+
+    &__shadowAppleAndGreen{
+      border: 2px solid black;
+      position: absolute;
+      top: -2.1vw;
+      left: 1.9%;
+      width: 54%;
+      mix-blend-mode: multiply;
+
+      @media screen and (max-width: 1470px){
+        top: -3.3vw;
+      }
+
+      @media screen and (max-width: 1280px){
+        top: -4vw;
+      }
+
+      @media screen and (max-width: 1160px){
+        top: -4.5vw;
+      }
+
+      @media screen and (max-width: 1080px){
+        top: -5vw;
+      }
+    }
+
+    &__pineappleSun{
+      position: absolute;
+      left: 36.3%;
+      top: 7.4%;
+      width: 27%;
+    }
+
+    &__pineapple{
+      position: absolute;
+      left: 32.5%;
+      bottom: 13%;
+      width: 16%;
+    }
+
+    &__tomatoes{
+      position: absolute;
+      bottom: -10vw;
+      right: 9%;
+      width: 26%;
+    }
+
+    &__tasks{
+      border: 1px solid red;
+      position: absolute;
+      left: 6.5%;
+      // top: 19.5%;
+      top: 11.5vw;
+      // top: 10vw;
+      width: 27%;
+    }
+
+    &__TA{
+      border: 1px solid red;
+      position: absolute;
+      right: 9%;
+      // top: 16.5%;
+      top: 10vw;
+      width: 25%;
+    }
+
+    &__list{
+      margin-top: 2vw;
+    }
+
+    &__item{
+      position: relative;
+      font-family: DinPro-Regular, sans-serif;
+      color: black;
+      margin: .7vw 0;
+
+      & > span{
+        position: absolute;
+        top: .4vw;
+        left: -1vw;
+        width: .7vw;
+        height: .7vw;
+        background-color: #d2071d;
+      }      
+    }
+  }
+
+  .decision{
+    border: 1px solid blue;
+		position: relative;
+		line-height: 1.15;
+    color: black;
+
+    &__ellipse{
+      width: 100%;
+    }
+
+    &__content{
+      border: 1px solid black;
+      position: absolute;
+      top: 10%;
+      left: 7%;
+      display: flex;
+      width: 68%;
+    }
+
+    &__wrapperSwiper{
+			border: 1px solid yellow;
+			position: relative;			
+			width: 40.5%;
+			text-align: center;
+		}
+
+		&__swiper-container{
+			border: 1px solid red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+			overflow: hidden;
+			cursor: pointer;
+
+      width: 74.5%;
+      height: 77%;
+      transform: translate(-50%, -49.2%);
+		}
+
+		&__swiperItemsContainer{
+			position: relative;
+			align-items: center;
+			
+			@include from(1025px){
+				cursor: pointer;
+			}
+
+			& > img{
+				&:focus{
+					outline: none;
+				}
+			}
+		}
+
+		&__buttons{
+			border: 1px solid green;
+			position: absolute;
+			width: 8%;
+
+			bottom: 4%;
+			left: -6%;
+			
+      display: flex;
+      flex-direction: column;
+    }
+    
+    &__btn{
+      border: 1px solid yellow;
+      // width: 100%;
+      margin: .5vw 0;
+
+			cursor: pointer;
+
+			&:hover{
+				transform: scale(1.2);
+			}
+
+			&:active{
+				transform: scale(1);
+			}
+
+			@include md-block{
+				cursor: default;
+
+				&:hover{
+					transform: scale(1);
+				}
+
+				&:active{
+					transform: scale(0.8);
+				}
+			}
+    }
+
+    &__textBlock{
+      border: 1px solid yellow;
+      width: 59.5%;
+      align-self: flex-end;
+    }
+
+    &__p{
+      margin: 2.2vw 0;
+    }
+
+    &__rabbit{
+      position: absolute;
+      right: 21vw;
+      top: 10vw;
+      width: 13%;
+    }
+
+    &__rocket{
+      position: absolute;
+      right: -13%;
+      top: 20%;
+      width: 52%;
+    }
+  }
+
+  .why{
+    border: 1px solid blue;
+		position: relative;
+		line-height: 1.15;
+    color: black;
+
+    padding-top: 1vw;
+
+    &__ellipse{
+      width: 100%;
+    }
+
+    &__content{
+      border: 1px solid black;
+      position: absolute;
+      top: 3.5vw;
+      right: 6%;
+      display: flex;
+      width: 58%;
+    }
+
+    &__wrapperSwiper{
+			border: 1px solid yellow;
+			position: relative;			
+			width: 48%;
+			text-align: center;
+		}
+
+		&__swiper-container{
+			border: 1px solid red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+			overflow: hidden;
+			cursor: pointer;
+
+      width: 74.5%;
+      height: 77%;
+      transform: translate(-50%, -49.2%);
+		}
+
+		&__swiperItemsContainer{
+			position: relative;
+			align-items: center;
+			
+			@include from(1025px){
+				cursor: pointer;
+			}
+
+			& > img{
+				&:focus{
+					outline: none;
+				}
+			}
+		}
+
+		&__buttons{
+			border: 1px solid green;
+			position: absolute;
+			width: 8%;
+
+			bottom: 4%;
+			left: -6%;
+			
+      display: flex;
+      flex-direction: column;
+    }
+    
+    &__btn{
+      border: 1px solid yellow;
+      // width: 100%;
+      margin: .5vw 0;
+
+			cursor: pointer;
+
+			&:hover{
+				transform: scale(1.2);
+			}
+
+			&:active{
+				transform: scale(1);
+			}
+
+			@include md-block{
+				cursor: default;
+
+				&:hover{
+					transform: scale(1);
+				}
+
+				&:active{
+					transform: scale(0.8);
+				}
+			}
+    }
+
+    &__textBlock{
+      border: 1px solid yellow;
+      width: 52%;
+      align-self: center;
+    }
+
+    &__p{
+      margin: 2.2vw 0;
+    }
+
+    &__flowers{
+      position: absolute;
+      left: -6.2vw;
+      bottom: 2.4%;
+      width: 35%;
+    }
+
+    &__leafs{
+      position: absolute;
+      top: 11%;
+      left: 2%;      
+      width: 72%;
+    }
+  }
+
+	/* .slider{
+		border: 1px solid blue;
+		position: relative;
+		line-height: 1.15;
+
+		padding: 3.5vw 0 0 0;
+		@include xs(padding, 10vw 0 0 0);
+		@include xxs(padding, 12vw 0 0 0);
+
+		&__wrapperSwiper{
+			border: 1px solid yellow;
+			position: relative;			
+			width: 100%;
+			text-align: center;
+		}
+
+		&__swiper-container{
+			border: 1px solid red;
+			position: relative;
+			overflow: hidden;
+			cursor: pointer;
+
+			width: 54%;
+			margin: 0 auto;
+			border-radius: 30px;
+
+			@include sm(width, 84%);
+		}
+
+		&__swiperItemsContainer{
+			position: relative;
+			align-items: center;
+			
+			@include from(1025px){
+				cursor: pointer;
+			}
+
+			& > video{
+				max-height: 37.3vw;
+				padding: 0 2px;
+
+				@include sm(max-height, 50vw);
+
+				&:focus{
+					outline: none;
+				}
+			}
+		}
+
+		&__buttons{
+			border: 1px solid red;
+			position: absolute;
+			width: 80%;
+
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			
+			display: flex;
+			justify-content: space-between;
+
+			@include sm(width, 100%);
+
+			@include from(1025px){
+
+				& > *{
+					cursor: pointer;
+				}				
+			}
+		}
+
+		&__btn{
+			width: 10%;
+
+			@include sm(width, 8%);
+
+			cursor: pointer;
+
+			&:hover{
+				transform: scale(1.2);
+			}
+
+			&:active{
+				transform: scale(1);
+			}
+
+			@include md-block{
+				cursor: default;
+
+				&:hover{
+					transform: scale(1);
+				}
+
+				&:active{
+					transform: scale(0.8);
+				}
+			}
+		}
+
+		.swiper-pagination_block{
+			position: relative;
+			text-align: center;
+			margin-top: 1vw;
+		}
+
+		.swiper-pagination-bullet{
+			opacity: 1;
+			width: 5px;
+			height: 5px;
+			background: #81878a;
+			margin: 0px .5vw;
+
+			&-active{
+				background: white;
+			}
+		}
+	} */
+
+	.team{
+		// border: 1px solid black;
+    position: relative;
+    line-height: 1.15;
+
+    &__fullBg{
+      width: 100%;
+
+      @media screen and (max-width: 1023px){
+        width: 110%;
+        margin-left: -5%;
+      }
+
+      @include sm-block{
+        width: 135%;        
+      }
+      
+      @include xs-block{
+        width: 145%;
+        margin-left: 0;
+      }
+    }
+    
+    &__container{
+      // border: 1px solid black;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @include xs(top, 43.5%);
+    }
+
+    &__members{
+			// border: 1px solid blue;
+      display: flex;
+
+      width: 75%;
+      
+      @media screen and (max-width: 1023px){
+        width: 70%;
+      }
+
+      @include sm(width, 90%);
+      @include xs(width, 100%);
+		}
+	}
+
+  .member{
+		// border: 1px solid yellow;
+    position: relative;
+    text-align: center;
+
+    margin: 0 .8vw;
+		
+		&__photo{
+      position: relative;
+      transform: translateX(13%);
+		}
+
+		&__name{
+      font-family: Mir-Bold, sans-serif;
+      color: black;
+      font-size: 1.2vw;
+      margin-top: .35vw;
+
+			@include to(1366px){
+				// font-size: 1.3vw;
+      }
+      
+      @media screen and (max-width: 1023px){
+        font-size: 1.8vw;
+      }
+
+			// @include to(1023px){
+			// 	font-size: 1.4vw;
+			// }
+
+			@include sm(font-size, 2vw);
+			@include xs(font-size, 2.5vw);
+			// @include xxs(font-size, 3vw);
+		}
+
+		&__position{
+      font-family: Mir-Bold, sans-serif;
+      color: #3c6971;
+      font-size: 1.1vw;
+      margin-top: .2vw;
+
+			@include to(1366px){
+				font-size: 1.05vw;
+      }
+      
+      @media screen and (max-width: 1023px){
+        font-size: 1.5vw;
+      }
+
+			// @include to(1023px){
+			// 	font-size: 1.1vw;
+			// }
+
+			@include sm(font-size, 1.8vw);
+			@include xs(font-size, 2.2vw);
+			// @include xxs-block{
+			// 	font-size: 2.6vw;
+			// 	margin-top: 3vw;
+			// }
+		}
+	}
+}
