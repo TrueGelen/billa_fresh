@@ -103,6 +103,11 @@
 
         <img src="img/decision/rabbit.png" alt="" class="decision__rabbit">
 
+        <picture class="decision__rocket">
+          <source srcset="img/decision/tablet/rocket.png" media="(max-width: 1024px)">
+          <img src="img/decision/rocket.png" alt="rocket">
+        </picture>
+
         <div class="decision__content">
           <div class="decision__wrapperSwiper noselect">
             <img src="img/slider/device.png" alt="phone" class="slider__deviceBg">
@@ -142,12 +147,6 @@
           </div>
         </div>
 
-
-
-        <picture class="decision__rocket">
-          <source srcset="img/decision/tablet/rocket.png" media="(max-width: 1024px)">
-          <img src="img/decision/rocket.png" alt="rocket">
-        </picture>
       </section>
 
       <section class="why">
@@ -157,7 +156,10 @@
           <img src="img/why/ellipse.png" alt="ellipse">
         </picture>
 
-        <img src="img/why/flowers.png" alt="flower" class="why__flowers">
+        <picture class="why__flowers">
+          <source srcset="img/why/tablet/flowers.png" media="(max-width: 1024px)">
+          <img src="img/why/flowers.png" alt="flowers">
+        </picture>
 
         <div class="why__content">
           <div class="why__textBlock">
@@ -196,6 +198,7 @@
       <section class="results">
         <div class="results__layouts">
           <picture class="results__left">
+            <source srcset="img/results/tablet/ellipse_1_sm.png" media="(max-width: 768px)">
             <source srcset="img/results/tablet/ellipse_1.png" media="(max-width: 1024px)">
             <img src="img/results/ellipse_1.png" alt="ellipse_1">
           </picture>
@@ -205,41 +208,172 @@
           </picture>
         </div>
 
+        <picture class="results__nest">
+          <source srcset="img/team/tablet/nest.png" media="(max-width: 1024px)">
+          <img src="img/team/nest.png" alt="nest">
+        </picture>
+
         <div class="results__result">
           <h2 class="mainTitle">Результаты</h2>
-          <p class="mainText result__leftP"><span>в <span class="result_big">6</span> раз</span> увеличилась
-            вовлеченность за период,</p>
-          <p class="mainText result__leftP"><span>в <span class="result_big">9</span> раз</span> возросло количество
-            интеракций.</p>
+          <div class="results__redLine">
+            <div class="results__redText">
+              <p class="mainText results__redText_small results__redText_small_1">в</p>
+              <p class="results__redText_big">6</p>
+              <p class="mainText results__redText_small results__redText_small_1">раз</p>
+            </div>
+            <p class="mainText">увеличилась вовлеченность за период,</p>
+          </div>
+
+
+          <div class="results__redLine">
+            <div class="results__redText">
+              <p class="mainText results__redText_small results__redText_small_2">в</p>
+              <p class="results__redText_big">9</p>
+              <p class="mainText results__redText_small results__redText_small_2">раз</p>
+            </div>
+            <p class="mainText">возросло
+              количество
+              интеракций.</p>
+          </div>
         </div>
 
         <div class="results__comments">
           <div class="comment">
             <div class="comment__header">
-              <img src="img/results/rodina.png" alt="rodina" class="comment__photo">
-              <p class="comment__title">Мнение<br>клиента</p>
-              <div class="comment__com">
-
-              </div>
-              <p class="comment__position">
-                Ксения Родина,<br>директор по маркетингу BILLA Russia
-              </p>
+              <picture class="comment__photo">
+                <source srcset="img/results/tablet/rodina.png" media="(max-width: 1024px)">
+                <img src="img/results/rodina.png" alt="rodina">
+              </picture>
+              <p class="mainTitle comment__title">Мнение<br>клиента</p>
             </div>
+            <div class="mainText comment__com">
+              Очень приятно работать со&nbsp;специалистами своего дела, учитывающими все ценности компании. Контент
+              в&nbsp;социальных сетях заметно преобразился, что&nbsp;несомненно положительно сказалось
+              на&nbsp;показателях
+              вовлеченности. Также удалось сконцентрировать внимание аудитории на&nbsp;свежести и качестве товара,
+              что&nbsp;является заслугой компании «Нектарин». Мы рады, что&nbsp;наше сотрудничество приносит отличный
+              результат уже&nbsp;не первый год!
+            </div>
+            <p class="comment__position">
+              Ксения Родина,<br>директор по маркетингу BILLA Russia
+            </p>
           </div>
           <div class="comment">
             <div class="comment__header">
-              <img src="img/results/rodina.png" alt="rodina" class="comment__photo">
-              <p class="comment__title">Мнение<br>нашего<br> менеджера</p>
-              <div class="comment__com">
-
-              </div>
-              <p class="comment__position">
-                Милена Михайленко,<br>аккаунт-директор Nectarin
-              </p>
+              <picture class="comment__photo">
+                <source srcset="img/results/tablet/mihaylenko.png" media="(max-width: 1024px)">
+                <img src="img/results/mihaylenko.png" alt="mihaylenko">
+              </picture>
+              <p class="mainTitle comment__title">Мнение<br>нашего<br> менеджера</p>
             </div>
+            <div class="mainText comment__com">
+              При разработке стратегии продвижения бренда в&nbsp;социальных сетях приоритетом для&nbsp;нас являются
+              ценности
+              компании, поэтому для&nbsp;нас очень важно акцентировать внимание пользователей именно на&nbsp;них.
+              Свежесть и&nbsp;качество продуктов — это основные ценности компании Билла, передать которые мы решили
+              с&nbsp;помощью контента
+              в&nbsp;социальных сетях. Мы повысили его качество и&nbsp;разработали новую контент-стратегию. Показатели
+              вовлеченности и&nbsp;количество интеракций увеличились в&nbsp;несколько раз и&nbsp;это лучший знак того,
+              что мы все
+              сделали правильно.
+            </div>
+            <p class="comment__position">
+              Милена Михайленко,<br>аккаунт-директор Nectarin
+            </p>
           </div>
         </div>
       </section>
+
+      <footer class="team">
+
+        <picture class="team__ellipse">
+          <source srcset="img/team/tablet/ellipse.png" media="(max-width: 1024px)">
+          <img src="img/team/ellipse.png" alt="ellipse">
+        </picture>
+
+        <h2 class="mainTitle team__title">Команда проекта</h2>
+
+        <picture class="team__nest">
+          <source srcset="img/team/tablet/nest.png" media="(max-width: 1024px)">
+          <img src="img/team/nest.png" alt="nest">
+        </picture>
+
+        <div class="team__content">
+          <div class="team__members">
+            <div class="member">
+              <div class="member__photoBlock">
+                <picture>
+                  <source srcset="img/team/tablet/mihaylenko.png" media="(max-width: 768px)">
+                  <img src="img/team/mihaylenko.png" alt="mihaylenko" class="member__photo">
+                </picture>
+              </div>
+              <p class="member__name">Милена<br> Михайленко</p>
+              <p class="member__position">аккаунт-<br>директор</p>
+            </div>
+            <div class="member">
+              <div class="member__photoBlock">
+                <picture>
+                  <source srcset="img/team/tablet/yazina.png" media="(max-width: 768px)">
+                  <img src="img/team/yazina.png" alt="yazina" class="member__photo">
+                </picture>
+              </div>
+              <p class="member__name">Елизавета<br> Язина</p>
+              <p class="member__position">Аккаунт-менеджер<br> проекта</p>
+            </div>
+            <div class="member">
+              <div class="member__photoBlock">
+                <picture>
+                  <source srcset="img/team/tablet/bogatireva.png" media="(max-width: 768px)">
+                  <img src="img/team/bogatireva.png" alt="bogatireva" class="member__photo">
+                </picture>
+              </div>
+              <p class="member__name">Ника<br> Богатырева</p>
+              <p class="member__position">Директор SMM-<br>департамента</p>
+            </div>
+            <div class="member">
+              <div class="member__photoBlock">
+                <picture>
+                  <source srcset="img/team/tablet/artemev.png" media="(max-width: 768px)">
+                  <img src="img/team/artemev.png" alt="artemev" class="member__photo">
+                </picture>
+              </div>
+              <p class="member__name">Алексей<br> Артемев</p>
+              <p class="member__position">Копирайтер<br> проекта</p>
+            </div>
+            <div class="member">
+              <div class="member__photoBlock">
+                <picture>
+                  <source srcset="img/team/tablet/yakovleva.png" media="(max-width: 768px)">
+                  <img src="img/team/yakovleva.png" alt="yakovleva" class="member__photo">
+                </picture>
+              </div>
+              <p class="member__name">Мария<br> Яковлева</p>
+              <p class="member__position">Копирайтер<br> проекта</p>
+            </div>
+            <div class="member">
+              <div class="member__photoBlock">
+                <picture>
+                  <source srcset="img/team/tablet/obodzinskiy.png" media="(max-width: 768px)">
+                  <img src="img/team/obodzinskiy.png" alt="obodzinskiy" class="member__photo">
+                </picture>
+              </div>
+              <p class="member__name">Артем<br> Ободзиновский</p>
+              <p class="member__position">Копирайтер<br> проекта</p>
+            </div>
+            <div class="member">
+              <div class="member__photoBlock">
+                <picture>
+                  <source srcset="img/team/tablet/volkova.png" media="(max-width: 768px)">
+                  <img src="img/team/volkova.png" alt="volkova" class="member__photo">
+                </picture>
+              </div>
+              <p class="member__name">Анна<br> Волкова</p>
+              <p class="member__position">Дизайнер<br> проекта</p>
+            </div>
+          </div>
+        </div>
+
+      </footer>
 
     </div>
   </div>
