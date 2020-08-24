@@ -1,12 +1,15 @@
 
-import { Swiper, Navigation } from 'swiper/js/swiper.esm'
+import { Swiper, Navigation, Lazy } from 'swiper/js/swiper.esm'
 
 window.addEventListener('load', () => {
 
-  Swiper.use([Navigation]);
+  Swiper.use([Navigation, Lazy]);
 
   const slider = new Swiper('.decision .decision__content .decision__wrapperSwiper .decision__swiper-container', {
     loop: true,
+    lazy: {
+      loadPrevNext: true,
+    },
     slidesPerView: 1,
     speed: 500,
     direction: 'vertical',
@@ -34,6 +37,9 @@ window.addEventListener('load', () => {
 
   new Swiper('.why .why__content .why__wrapperSwiper .why__swiper-container', {
     loop: true,
+    lazy: {
+      loadPrevNext: true,
+    },
     slidesPerView: 1,
     speed: 500,
     direction: 'vertical',

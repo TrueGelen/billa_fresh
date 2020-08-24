@@ -1,4 +1,5 @@
 import './slider'
+import './ellipsesAppearance'
 // import './scrollTo'
 // import './parallax'
 // import './targetAudienceSection'

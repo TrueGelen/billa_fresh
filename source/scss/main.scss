@@ -11,6 +11,8 @@
 // black: #be84a3;
 // $mainGreen: #9cc83a;
 // $mainWhite: #f2f2f2;
+$ellipseTime: .3s;
+$contentTime: $ellipseTime;
 
 ///---------common styles ----------------------
 
@@ -124,18 +126,23 @@ body, div, h1, h2, h3, h4, p, input {
   position: relative;
   line-height: 1.15;
   // background-color: $mainWhite;
-  background-image: url(../img/grass.png);
+  background-image: url(../img/grass_big.png);
   background-repeat: repeat;
   background-size: contain;
+  // background-position-y: -5%;
   overflow: hidden;
+
+  @media screen and (min-width: 2049px){
+    padding: 0 1vw;
+  }
 
   .mainTitle{
     position: relative;
     font-family: DinPro-Bold, sans-serif;
     text-transform: uppercase;
-		font-size: 2.7vw;
+		font-size: 2.4vw;
 		color: black;
-		line-height: 1;
+		line-height: 1.2;
 
 		@media screen and (max-width: 1023px){
       font-size: 3.5vw;
@@ -160,7 +167,7 @@ body, div, h1, h2, h3, h4, p, input {
     }
 		@include sm(font-size, 1.85vw);
 		@include xs(font-size, 2vw);
-		// @include xxs(font-size, 2.3vw);
+		@include xxs(font-size, 2.3vw);
 
 		// & > span{
 			
@@ -168,7 +175,7 @@ body, div, h1, h2, h3, h4, p, input {
   }
 
 	.firstBlock{
-		border: 1px solid blue;
+		// border: 1px solid blue;
 		position: relative;
 		line-height: 1.15;
 
@@ -180,21 +187,34 @@ body, div, h1, h2, h3, h4, p, input {
     &__ellipse{
       width: 69vw;
       margin: 0 0 0 auto;
+      transition: $ellipseTime ease-in-out;
+      transform: translateY(-100%);
+
+      @media screen and (min-width: 2049px){
+        margin: 0 -1.1vw 0 auto;
+      }
 
       @media screen and (max-width: 1023px){
         width: 73vw;
       }
 
       @include xs(width, 78vw);
+
+      &_show{
+        transform: translateY(0%);
+      }
     }
 
     &__content{
-      border: 1px solid black;
+      // border: 1px solid black;
       position: absolute;
       top: 20%;
-      // transform: translateY(-50%);
       right: 5vw;
       width: 41vw;
+
+      transform: translateY(-150%);
+      transition: $contentTime ease-in-out;
+      transition-delay: $ellipseTime;
 
       @media screen and (max-width: 1023px){
         top: 15%;
@@ -203,6 +223,10 @@ body, div, h1, h2, h3, h4, p, input {
 
       @include xs-block{
         right: 7.5vw;
+      }
+
+      &_show{
+        transform: translateY(0%);
       }
     }
 
@@ -228,11 +252,11 @@ body, div, h1, h2, h3, h4, p, input {
 
       @include md(font-size, 2vw);
       @include sm(font-size, 2.55vw);
-    }    
+    }
   }
 
   .tasks{
-    border: 1px solid blue;
+    // border: 1px solid blue;
 		position: relative;
 		line-height: 1.15;
     color: black;
@@ -245,31 +269,56 @@ body, div, h1, h2, h3, h4, p, input {
     }
 
     &__left{
-      border: 1px solid yellow;
+      // border: 1px solid yellow;
       margin-top: -11vw;
       width: 49%;
-      // transform: scale(1);
+      
+      transform: translateX(-115%);
+      transition: $ellipseTime ease-in-out;
 
-      @include xs(transform, scale(1.05));
+      @include xs(transform, scale(1.05) translateX(-115%));
+
+      &_show{
+        transform: translateX(0%);
+
+        @include xs(transform, scale(1.05) translateX(0%));
+      }
     }
 
     &__right{
-      border: 1px solid black;
+      // border: 1px solid black;
       width: 51%;
       margin-top: 4vw;
-      transform: scale(1.05);
 
-      @include xs(transform, scale(1.1));
+      transform: scale(1.05) translateX(115%);
+      transition: $ellipseTime ease-in-out;
+
+      @include xs(transform, scale(1.1) translateX(115%));
+
+      &_show{
+        transform: scale(1.05) translateX(0%);
+
+        @include xs(transform, scale(1.1) translateX(0%));
+      }
     }
 
     &__tasks{
-      border: 1px solid red;
+      // border: 1px solid red;
       position: absolute;
       left: 6.5%;
       // top: 19.5%;
       top: 11.5vw;
       // top: 10vw;
       width: 27%;
+
+      transform: translateX(-40vw);
+      transition: $contentTime ease-in-out;
+      transition-delay: $ellipseTime;
+
+      @media screen and (min-width: 2049px){
+        top: -3vw;
+        left: 13%;
+      }
 
       @media screen and (max-width: 1366px){
         top: 8vw;
@@ -289,15 +338,34 @@ body, div, h1, h2, h3, h4, p, input {
         left: 15px;
         top: 3vw;
       }
+
+      @include xxs-block{
+        width: 35%;
+        left: 15px;
+        top: 1vw;
+      }
+
+      &_show{
+        transform: translateX(0);
+      } 
     }
 
     &__TA{
-      border: 1px solid red;
+      // border: 1px solid red;
       position: absolute;
       right: 9%;
       // top: 16.5%;
       top: 10vw;
       width: 25%;
+
+      transform: translateX(40vw);
+      transition: $contentTime ease-in-out;
+      transition-delay: $ellipseTime;
+
+      @media screen and (min-width: 2049px){
+        top: 8vw;
+        right: 10%;
+      }
 
       @media screen and (max-width: 1023px){
         width: 30%;
@@ -308,6 +376,13 @@ body, div, h1, h2, h3, h4, p, input {
         width: 32.2%;
         right: 15px;
         top: 9vw;
+      }
+      @include xs-block{
+        top: 8vw;
+      }
+
+      &_show{
+        transform: translateX(0);
       }
     }
 
@@ -342,7 +417,13 @@ body, div, h1, h2, h3, h4, p, input {
       position: absolute;
       top: -33.5vw;
       left: 1.9%;
-      width: 52%; 
+      width: 52%;
+
+      @media screen and (min-width: 2049px){
+        width: 42%;
+        left: 10%;
+        top: -35vw;
+      }
       
       @media screen and (max-width: 1023px){
         top: -36vw;
@@ -351,12 +432,18 @@ body, div, h1, h2, h3, h4, p, input {
     }
 
     &__shadowAppleAndGreen{
-      border: 2px solid black;
+      // border: 2px solid black;
       position: absolute;
       top: -2.1vw;
       left: 1.9%;
       width: 54%;
       mix-blend-mode: multiply;
+
+      @media screen and (min-width: 2049px){
+        width: 42%;
+        left: 10.5%;
+        top: -8.5vw;
+      }
 
       @media screen and (max-width: 1470px){
         top: -3.3vw;
@@ -383,6 +470,10 @@ body, div, h1, h2, h3, h4, p, input {
         top: -6.6vw;
         width: 46%;
       }
+
+      @include xxs-block{
+        top: -6vw;
+      }
     }
 
     &__pineappleSun{
@@ -397,6 +488,12 @@ body, div, h1, h2, h3, h4, p, input {
       left: 32.5%;
       bottom: 13%;
       width: 16%;
+
+      @media screen and (min-width: 2049px){
+        width: 14%;
+        bottom: 7%;
+        left: 20%;
+      }
 
       @media screen and (max-width: 1023px){
         width: 13%;
@@ -416,15 +513,21 @@ body, div, h1, h2, h3, h4, p, input {
       right: 9%;
       width: 26%;
 
+      @media screen and (min-width: 2049px){
+        width: 23%;
+      }
+
       @media screen and (max-width: 1023px){
         width: 20%;
         right: 3%;
       }
+
+      @include xxs(display, none);
     }
   }
 
   .decision{
-    border: 1px solid blue;
+    // border: 1px solid blue;
 		position: relative;
 		line-height: 1.15;
     color: black;
@@ -432,20 +535,38 @@ body, div, h1, h2, h3, h4, p, input {
     &__ellipse{
       width: 100%;
 
+      // transform: translateX(100vw);
+      opacity: .1;
+      transition: $ellipseTime ease-in-out;
+
       @media screen and (max-width: 1023px){
         width: 120%;
       }
 
       @include xs(width, 155%);
+
+      &_show{
+        // transform: translateX(0%);
+        opacity: 1;
+      }
     }
 
     &__content{
-      border: 1px solid black;
+      // border: 1px solid black;
       position: absolute;
       top: 10%;
       left: 7%;
       display: flex;
       width: 68%;
+
+      transform: translateX(-100vw);
+      transition: .4s ease-in-out;
+      transition-delay: $ellipseTime;
+
+      @media screen and (min-width: 2049px){
+        top: 12%;
+        left: 8%;
+      }
 
       @media screen and(max-width: 1540px){
         left: 5%;
@@ -470,13 +591,21 @@ body, div, h1, h2, h3, h4, p, input {
         width: calc(100% - 45px);
         left: 30px;
       }
+
+      &_show{
+        transform: translateX(0%);
+      }
     }
 
     &__wrapperSwiper{
-			border: 1px solid yellow;
+			// border: 1px solid yellow;
 			position: relative;			
 			width: 40.5%;
       text-align: center;
+
+      @media screen and (min-width: 2049px){
+        width: 16.5vw;
+      }
       
       @media screen and(max-width: 1023px){
         align-self: flex-end;
@@ -484,16 +613,22 @@ body, div, h1, h2, h3, h4, p, input {
 		}
 
 		&__swiper-container{
-			border: 1px solid red;
+			// border: 1px solid red;
       position: absolute;
       top: 50%;
       left: 50%;
 			overflow: hidden;
 			cursor: pointer;
 
-      width: 74.5%;
-      height: 77%;
+      width: 73.8%;
+      height: 77.3%;
       transform: translate(-50%, -49.2%);
+
+      @media screen and (min-width: 2049px){
+        height: 64%;
+        width: 74%;
+        transform: translate(-50%, -62.3%);
+      }
 		}
 
 		&__swiperItemsContainer{
@@ -512,7 +647,7 @@ body, div, h1, h2, h3, h4, p, input {
 		}
 
 		&__buttons{
-			border: 1px solid green;
+			// border: 1px solid green;
 			position: absolute;
 			width: 8%;
 
@@ -521,6 +656,12 @@ body, div, h1, h2, h3, h4, p, input {
 			
       display: flex;
       flex-direction: column;
+
+      @media screen and (min-width: 2049px){
+        width: 2.2vw;
+        left: -1.5vw;
+        bottom: 18%;
+      }
 
       @media screen and(max-width: 1023px){
         width: 11%;
@@ -539,7 +680,7 @@ body, div, h1, h2, h3, h4, p, input {
     }
     
     &__btn{
-      border: 1px solid yellow;
+      // border: 1px solid yellow;
       // width: 100%;
       margin: .5vw 0;
 
@@ -563,13 +704,19 @@ body, div, h1, h2, h3, h4, p, input {
 				&:active{
 					transform: scale(0.8);
 				}
-			}
+      }
+      
+      @include xs(margin, 1vw 0);
     }
 
     &__textBlock{
-      border: 1px solid yellow;
-      width: 59.5%;
+      // border: 1px solid yellow;
+      width: 57%;
       align-self: flex-end;
+
+      @include xs-block{
+        width: 59.5%;
+      }
     }
 
     &__p{
@@ -581,6 +728,14 @@ body, div, h1, h2, h3, h4, p, input {
       right: 21vw;
       top: 10vw;
       width: 13%;
+
+      transition: 1.6s cubic-bezier(.71,-0.33,.81,.05);
+      transition-delay: .6s;
+
+      @media screen and (min-width: 2049px){
+        right: 28vw;
+        top: 0;
+      }
 
       @media screen and(max-width: 1540px){
         right: 16vw;
@@ -609,6 +764,12 @@ body, div, h1, h2, h3, h4, p, input {
         top: auto;
         bottom: 2%;
       }
+
+      @include xxs(display, none);
+
+      &_show{
+        transform: translate(100vw, -80vw);
+      }
     }
 
     &__rocket{
@@ -616,6 +777,11 @@ body, div, h1, h2, h3, h4, p, input {
       right: -13%;
       top: 20%;
       width: 52%;
+
+      @media screen and (min-width: 2049px){
+        width: 39%;
+        right: -5%;
+      }
 
       @media screen and(max-width: 1023px){
         top: 33%;
@@ -625,10 +791,22 @@ body, div, h1, h2, h3, h4, p, input {
 
       @include xs(display, none);
     }
+
+    &__sky{
+      display: none;
+
+      @media screen and (min-width: 2049px){
+        display: block;
+        position: absolute;
+        top: 17vw;
+        right: 7vw;
+        width: 13vw;
+      }
+    }
   }
 
   .why{
-    border: 1px solid blue;
+    // border: 1px solid blue;
 		position: relative;
 		line-height: 1.15;
     color: black;
@@ -638,16 +816,34 @@ body, div, h1, h2, h3, h4, p, input {
     &__ellipse{
       width: 100%;
 
+      opacity: .1;
+      transition: $ellipseTime ease-in-out;
+
       @include xs(width, 155%);
+
+      &_show{
+        opacity: 1;
+      }
     }
 
     &__content{
-      border: 1px solid black;
+      // border: 1px solid black;
       position: absolute;
       top: 3.5vw;
       right: 6%;
       display: flex;
       width: 58%;
+
+      transform: translateX(100vw);
+      transition: $contentTime ease-in-out;
+      transition-delay: $ellipseTime;
+
+      @media screen and (min-width: 2049px){
+        width: 46%;
+        top: 8vw;
+        right: 10vw;
+        justify-content: space-between;
+      }
 
       @media screen and (max-width: 1023px){
         right: 30px;
@@ -657,28 +853,43 @@ body, div, h1, h2, h3, h4, p, input {
         width: calc(100% - 30px);
         right: 15px;
       }
+
+      &_show{
+        transform: translateX(0vw);
+      }
     }
 
     &__wrapperSwiper{
-			border: 1px solid yellow;
+			// border: 1px solid yellow;
 			position: relative;			
 			width: 48%;
       text-align: center;
+
+      @media screen and (min-width: 2049px){
+        width: 16.5vw;
+      }
       
-      @include xs(margin-top, -9vw)
+      @include xs(margin-top, -9vw);
 		}
 
 		&__swiper-container{
-			border: 1px solid red;
+			// border: 1px solid red;
       position: absolute;
       top: 50%;
       left: 50%;
 			overflow: hidden;
 			cursor: pointer;
 
-      width: 74.5%;
-      height: 77%;
+      width: 73.8%;
+      height: 77.3%;
       transform: translate(-50%, -49.2%);
+
+
+      @media screen and (min-width: 2049px){
+        height: 77.2%;
+        width: 73.4%;
+        transform: translate(-50%, -49%);
+      }
 		}
 
 		&__swiperItemsContainer{
@@ -697,7 +908,7 @@ body, div, h1, h2, h3, h4, p, input {
 		}
 
 		&__buttons{
-			border: 1px solid green;
+			// border: 1px solid green;
 			position: absolute;
 			width: 8%;
 
@@ -706,6 +917,12 @@ body, div, h1, h2, h3, h4, p, input {
 			
       display: flex;
       flex-direction: column;
+
+      @media screen and (min-width: 2049px){
+        width: 2.2vw;
+        left: -1.5vw;
+        bottom: 4%;
+      }
 
       @media screen and(max-width: 1023px){
         width: 11%;
@@ -724,7 +941,7 @@ body, div, h1, h2, h3, h4, p, input {
     }
     
     &__btn{
-      border: 1px solid yellow;
+      // border: 1px solid yellow;
       // width: 100%;
       margin: .5vw 0;
 
@@ -748,11 +965,13 @@ body, div, h1, h2, h3, h4, p, input {
 				&:active{
 					transform: scale(0.8);
 				}
-			}
+      }
+      
+      @include xs(margin, 1vw 0);
     }
 
     &__textBlock{
-      border: 1px solid yellow;
+      // border: 1px solid yellow;
       width: 52%;
       align-self: center;
     }
@@ -767,6 +986,12 @@ body, div, h1, h2, h3, h4, p, input {
       bottom: 2.4%;
       width: 35%;
 
+      @media screen and (min-width: 2049px){
+        left: 2vw;
+        width: 33%;
+        bottom: 1.1vw;
+      }
+
       @include xs(display, none);
     }
 
@@ -774,7 +999,11 @@ body, div, h1, h2, h3, h4, p, input {
       position: absolute;
       top: 11%;
       left: 2%;      
-      width: 72%;
+      width: 52%;
+
+      @media screen and (min-width: 2049px){
+        display: none;
+      }
 
       @media screen and (max-width: 1023px){
         display: none;
@@ -783,7 +1012,7 @@ body, div, h1, h2, h3, h4, p, input {
   }
 
   .results{
-    border: 1px solid blue;
+    // border: 1px solid blue;
 		position: relative;
 		line-height: 1.15;
     color: black;
@@ -801,6 +1030,11 @@ body, div, h1, h2, h3, h4, p, input {
       justify-content: space-between;
       width: 100%;
 
+      @media screen and (min-width: 2049px){
+        width: calc(100% + 2.2vw);
+        margin-left: -1.1vw;
+      }
+
       @include sm-block{
         flex-wrap: wrap;
         // justify-content: none;
@@ -808,9 +1042,12 @@ body, div, h1, h2, h3, h4, p, input {
     }
 
     &__left{
-      border: 1px solid yellow;
+      // border: 1px solid yellow;
       width: 32%;
       margin-top: 2.3vw;
+
+      transform: translateX(-120%);
+      transition: $ellipseTime ease-in-out;
 
       @media screen and (max-width: 1023px){
         width: 28%;
@@ -820,37 +1057,79 @@ body, div, h1, h2, h3, h4, p, input {
         width: 70%;
         margin-left: 10vw;
       }
+
+      &_show{
+        transform: translateX(0%);
+      }
     }
 
     &__right{
-      border: 1px solid yellow;
+      // border: 1px solid yellow;
       width: 68%;
-      transform: scale(1.1);
+      transform: scale(1.1) translateX(140%);
+      transition: $ellipseTime ease-in-out;
       // margin-top: 2.3vw;
+
+      @media screen and (min-width: 2049px){
+        transform: scale(1.05) translateX(140%);
+      }
 
       @media screen and (max-width: 1023px){
         width: 72%;
-        transform: scale(1.2);
+        transform: scale(1.2) translateX(140%);
       }
 
       @include sm-block{
-        transform: none;
+        transform: translateX(140%);
         width: 100%;
         // align-self: flex-end;
       }
 
       @include xs-block{
-        transform: scale(1.2);
+        transform: scale(1.2) translateX(140%);
         padding: 6vw 0;
+      }
+
+      &_show{
+        transform: scale(1.1) translateX(0%);
+
+        @media screen and (min-width: 2049px){
+          transform: scale(1.05) translateX(0%);
+        }
+  
+        @media screen and (max-width: 1023px){
+          width: 72%;
+          transform: scale(1.2) translateX(0%);
+        }
+  
+        @include sm-block{
+          transform: translateX(0%);
+          width: 100%;
+          // align-self: flex-end;
+        }
+  
+        @include xs-block{
+          transform: scale(1.2) translateX(0%);
+          padding: 6vw 0;
+        }
       }
     }
 
     &__result{
-      border: 1px solid red;
+      // border: 1px solid red;
       position: absolute;      
       top: 21.7%;
       left: 5%;
       width: 20%;
+
+      transform: translateX(-55vw);
+      transition: $contentTime ease-in-out;
+      transition-delay: $ellipseTime;
+
+      @media screen and (min-width: 2049px){
+        top: 7.5vw;
+        left: 6.5vw;
+      }
 
       @media screen and (max-width: 1280px){
         top: 20%;
@@ -872,21 +1151,18 @@ body, div, h1, h2, h3, h4, p, input {
       @include xs-block{
         top: 11%;
       }
-    }
 
-    &__nest{
-      display: none;
-      @include sm-block{
-        display: block;
-        position: absolute;
-        top: 13%;
-        width: 30%;
-        left: 55%;
+      @include xxs-block{
+        width: 28%;
+      }
+
+      &_show{
+        transform: translateX(0vw);
       }
     }
 
     &__comments{
-      border: 1px solid red;
+      // border: 1px solid red;
       position: absolute;      
       top: 14%;
       // top: 7vw;
@@ -895,6 +1171,14 @@ body, div, h1, h2, h3, h4, p, input {
 
       display: flex;
       justify-content: space-between;
+
+      transform: translateX(100vw);
+      transition: $contentTime ease-in-out;
+      transition-delay: $ellipseTime;
+
+      @media screen and (min-width: 2049px){
+        top: 5.5vw;
+      }
 
       @media screen and (max-width: 1280px){
         top: 13%;
@@ -921,6 +1205,15 @@ body, div, h1, h2, h3, h4, p, input {
         bottom: 12%;
         width: calc(100% - 30px);
       }
+
+      @include xxs-block{
+        bottom: 6%;
+        width: calc(100% - 30px);
+      }
+
+      &_show{
+        transform: translateX(0vw);
+      }
     }
 
     &__redLine{
@@ -931,7 +1224,7 @@ body, div, h1, h2, h3, h4, p, input {
     }
 
     &__redText{
-      border: 1px solid black;
+      // border: 1px solid black;
       display: flex;
       margin-right: 1.2vw;
 
@@ -940,6 +1233,10 @@ body, div, h1, h2, h3, h4, p, input {
         color: #d2071d;
         font-size: 7vw;
         line-height: 1;
+
+        @media screen and (min-width: 2049px){
+          font-size: 6vw;
+        }
       }
 
       &_small{
@@ -957,6 +1254,26 @@ body, div, h1, h2, h3, h4, p, input {
         }
       }
     }
+
+    &__nest{
+      display: none;
+      
+      @include sm-block{
+        display: block;
+        position: absolute;
+        top: 13%;
+        width: 30%;
+        left: 55%;
+
+        opacity: 0;
+        transition: $contentTime ease-in-out;
+        transition-delay: $ellipseTime;
+      }
+
+      &_show{
+        opacity: 1 !important;
+      }
+    }
   }
 
   .comment{
@@ -966,7 +1283,15 @@ body, div, h1, h2, h3, h4, p, input {
     width: 49.5%;
     padding: .5vw;
 
-    @include sm(border, 1px solid rgb(241, 238, 238));
+    @include sm-block{
+      border: 1px solid rgba(241, 238, 238, 0.6);
+      border-radius: 5vw 5vw 0 0;
+    }
+
+    @include xs-block{
+      border: 1px solid rgba(241, 238, 238, 0.6);
+      border-radius: 8vw 8vw 0 0;
+    }
 
     &__header{
       display: flex;
@@ -979,7 +1304,7 @@ body, div, h1, h2, h3, h4, p, input {
     }
 
     &__title{
-      border: 1px solid yellow;
+      // border: 1px solid yellow;
       width: 67%;
     }
 
@@ -999,8 +1324,10 @@ body, div, h1, h2, h3, h4, p, input {
         margin-top: 1.3vw;
       }
 
-      @include sm(font-size, 1.6vw);
-      @include sm(font-size, 1.8vw);
+      @include sm-block{
+        // margin-left: 2.5vw;
+        font-size: 1.8vw;
+      }
     }
   }
 
@@ -1123,13 +1450,17 @@ body, div, h1, h2, h3, h4, p, input {
 	} */
 
 	.team{
-		border: 1px solid black;
+		// border: 1px solid black;
     position: relative;
     line-height: 1.15;
-    padding-top: 4vw;
+    padding-top: 8vw;
+
+    @media screen and (min-width: 2049px){
+      padding-top: 9vw;
+    }
 
     @media screen and (max-width: 1023px){
-      padding-top: 9vw;
+      padding-top: 10.5vw;
     }
 
     &__nest{
@@ -1139,7 +1470,15 @@ body, div, h1, h2, h3, h4, p, input {
       transform: translateY(-85%);
       z-index: 2;
 
+      opacity: 0;
+      transition: $ellipseTime ease-in-out;
+      transition-delay: $ellipseTime;
+
       @include sm(display, none);
+
+      &_show{
+        opacity: 1;
+      }
     }
 
     &__ellipse{
@@ -1147,6 +1486,18 @@ body, div, h1, h2, h3, h4, p, input {
       top: 0;
       left: 0;
       width: 100%;
+
+      opacity: .1;
+      transition: $ellipseTime ease-in-out;
+
+      @media screen and (min-width: 2049px){
+        width: calc(100% + 2.2vw);
+        margin-left: -1.1vw;
+      }
+
+      &_show{
+        opacity: 1;
+      }
     }
 
     &__title{
@@ -1154,17 +1505,33 @@ body, div, h1, h2, h3, h4, p, input {
     }
 
     &__content{
-      border: 1px solid blue;
+      // border: 1px solid blue;
       position: relative;
       width: 100%;
 
-      border-radius: 190px 240px 0 0;
+      border-radius: 160px 200px 0 0;
 
       padding-bottom: 4vw;
       
-      background-color: white;
+      // background-color: rgba(255, 255, 255, 0);
+      background-color: rgba(255, 255, 255, 1);
+      opacity: 0;
+      transition: $ellipseTime ease-in-out;
 
-      @media screen and (max-width: 1600px){
+      & > * {
+        transform: translateX(-100vw);
+        transition: $ellipseTime ease-in-out;
+        transition-delay: $ellipseTime;
+      }
+      
+
+      @media screen and (min-width: 2049px){
+        width: calc(100% + 2.2vw);
+        margin-left: -1.1vw;
+        border-radius: 6vw 7vw 0 0;
+      }
+
+      @media screen and (max-width: 1650px){
         border-radius: 140px 160px 0 0;
       }
 
@@ -1180,10 +1547,19 @@ body, div, h1, h2, h3, h4, p, input {
       @include sm-block{
         border-radius: 40px 60px 0 0;
       }
+
+      &_show{
+        // background-color: rgba(255, 255, 255, 1);
+        opacity: 1;
+
+        & > *{
+          transform: translateX(0);
+        }        
+      }
     }
 
     &__members{
-			border: 1px solid black;
+			// border: 1px solid black;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1215,6 +1591,10 @@ body, div, h1, h2, h3, h4, p, input {
     background-color: #f1f0f0;
     padding: .2vw;
 
+    transform: scale(.1);
+    transition: $ellipseTime cubic-bezier(.34,1.84,.49,1.09);
+    transition-delay: .6s;
+
     @media screen and(max-width: 1023px){
       width: 20vw;
       height: 20vw;
@@ -1231,13 +1611,17 @@ body, div, h1, h2, h3, h4, p, input {
       width: 27vw;
       height: 27vw;
     }
+
+    &_show{
+      transform: scale(1);
+    }
 		
 		&__photo{
       position: relative;
 		}
 
 		&__name{
-      border: 1px solid yellow;
+      // border: 1px solid yellow;
       font-family: DinPro-Bold, sans-serif;
       text-transform: uppercase;
       color: black;
@@ -1265,7 +1649,7 @@ body, div, h1, h2, h3, h4, p, input {
 		}
 
 		&__position{
-      border: 1px solid yellow;
+      // border: 1px solid yellow;
       font-family: DinPro-Regular, sans-serif;
       color: #3c6971;
       font-size: .8vw;
